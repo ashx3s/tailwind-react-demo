@@ -1,9 +1,10 @@
+import { useState } from "react";
+import Button from "./components/utilities/Button";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import Button from "./components/utilities/Button";
-import "./App.css";
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
     <>
       <div className="flex flex-wrap justify-center">
@@ -28,11 +29,14 @@ function App() {
           />
         </a>
       </div>
-      <h1 className="text-transparent from-cyan-500 to-blue-500 bg-gradient-to-r bg-clip-text text-3xl font-bold md:text-5xl lg:text-7xl">
+      <h1 className="from-cyan-500 to-blue-500 bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-7xl">
         Vite + React
       </h1>
       <div className="card">
-        <Button />
+        <Button
+          method={() => setCount((count) => count + 1)}
+          text={`count is ${count}`}
+        />
         <p className="text-hm-red-50">
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
